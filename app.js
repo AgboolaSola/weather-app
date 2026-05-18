@@ -72,18 +72,23 @@ const displayForecast = (data) => {
     item.dt_txt.includes("12:00:00"),
   );
 
-  const forecastHTML = dailyForecasts.map(({ dt_txt, main, weather }) => {
-    const date = new Date(dt_txt).toLocaleString("en-NG", {
-      weekday: "short",
-      month: "short",
-      day: "numeric",
-    });
+  const forecastHTML = dailyForecasts
+    .map(({ dt_txt, main, weather }) => {
+      const date = new Date(dt_txt).toLocaleString("en-NG", {
+        weekday: "short",
+        month: "short",
+        day: "numeric",
+      });
 
-    return `<div> ${date} </div> <div> ${Math.round(main.temp)}°C</div> <div>${weather[0].description}</div> `;
-  });
+      return `      <div class="forecast-card">
+        <p class="forecast-date">${date}</p>
+        <p class="forecast-temp">${Math.round(main.temp)}°C</p>
+        <p class="forecast-desc">${weather[0].description}</p>
+      </div>
+ `;
+    })
+    .join("");
 
-  forecastList.innerHTML = forecastHTML.join("");
+  forecastList.innerHTML = forecastHTML;
   show(forecastSection);
-
-  console.log(dailyForecasts);
 };
