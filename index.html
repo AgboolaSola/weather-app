@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App— by Sola Agboola</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>Weather</h1>
+        <div class="search-box">
+          <input type="text" id="cityInput" placeholder="Enter a city..." />
+          <button id="searchBtn">Search</button>
+        </div>
+      </header>
+
+      <!-- Error message -->
+      <p id="errorMsg" class="error hidden"></p>
+
+      <!-- Current weather card -->
+      <section id="weatherCard" class="weather-card hidden">
+        <h2 id="cityName"></h2>
+        <p id="weatherDesc"></p>
+        <div class="stats">
+          <div class="stat">
+            <span class="stat-label">Temp</span>
+            <span id="temp" class="stat-value"></span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Humidity</span>
+            <span id="humidity" class="stat-value"></span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Wind</span>
+            <span id="wind" class="stat-value"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Forecast list (array methods go here) -->
+      <section id="forecastSection" class="hidden">
+        <h3>5-Day Forecast</h3>
+        <div id="forecastList" class="forecast-list"></div>
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
